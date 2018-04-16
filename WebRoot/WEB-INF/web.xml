@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.5" 
+	xmlns="http://java.sun.com/xml/ns/javaee" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
+	http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+	
+	<!-- 过滤器    post get方式解码器统一为utf-8 -->
+	<filter>
+	  <filter-name>EncodingFilter</filter-name>
+	  <filter-class>MA.Filter.EncodingFilter</filter-class>  
+	</filter>
+	<filter-mapping>
+	<filter-name>EncodingFilter</filter-name>
+	<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	
+	
+	
+	
+  <display-name></display-name>
+  <servlet>
+    <servlet-name>BaseServlet</servlet-name>
+    <servlet-class>MA.Util.BaseServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>indexServlet</servlet-name>
+    <servlet-class>MA.biz.front.index.web.indexServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>ImageServlet</servlet-name>
+    <servlet-class>MA.Util.ImageServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>UserServlet</servlet-name>
+    <servlet-class>MA.biz.front.user.web.UserServlet</servlet-class>
+  </servlet>
+
+
+
+
+  <servlet-mapping>
+    <servlet-name>BaseServlet</servlet-name>
+    <url-pattern>/BaseServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>indexServlet</servlet-name>
+    <url-pattern>/index</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ImageServlet</servlet-name>
+    <url-pattern>/ImageCode</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>UserServlet</servlet-name>
+    <url-pattern>/user</url-pattern>
+  </servlet-mapping>	
+  
+  <!-- 配置首页-->
+  <welcome-file-list>
+    <welcome-file>index.jsp</welcome-file>
+  </welcome-file-list>
+</web-app>
+ 
